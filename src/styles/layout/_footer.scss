@@ -1,8 +1,12 @@
+@use "../abstracts/functions" as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
 .footer {
   background: #111;
 
   color: #ccc;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
   font-size: 0.9rem;
 
@@ -29,5 +33,21 @@
 
   .credits {
     margin: 0;
+  }
+}
+
+.footer-social {
+  margin-top: rem(12);
+  display: flex;
+  gap: rem(12);
+  justify-content: center;
+
+  a {
+    color: $color-text;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-primary;
+    }
   }
 }

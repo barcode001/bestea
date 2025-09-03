@@ -17,12 +17,11 @@
 *::before,
 *::after {
   box-sizing: border-box;
-
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-  }
+}
+html,
+body {
+  margin: 0 auto;
+  padding: 0;
 }
 
 // styles/_animations.scss or styles/main.scss
