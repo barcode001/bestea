@@ -11,6 +11,19 @@
 @use "./base/reset";
 @use "./base/typography";
 
+/* Reset all elements to border-box */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 // styles/_animations.scss or styles/main.scss
 .reveal {
   opacity: 0;
