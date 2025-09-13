@@ -1,0 +1,215 @@
+/* layout helpers */
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+.center {
+  text-align: center;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid #2e2a28;
+}
+.btn--primary {
+  background: #f2892d;
+  color: #2e2a28;
+}
+.btn--ghost {
+  background: transparent;
+  color: #2e2a28;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 86vh;
+  display: flex;
+  align-items: center;
+  color: #2e2a28;
+  background: #f6f3ec;
+}
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background: url("/images/hero-bestea.webp") center/cover no-repeat;
+  opacity: 0.95;
+}
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  padding: 6rem 0 3rem;
+}
+.hero__title {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  margin: 0 0 0.2rem;
+}
+.hero__tagline {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  opacity: 0.9;
+}
+.hero__cta {
+  display: flex;
+  gap: 0.6rem;
+  margin: 1rem 0 0;
+  flex-wrap: wrap;
+}
+.hero__hours {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+}
+
+/* Deals */
+.deals {
+  background: #fff;
+  padding: 2.5rem 0;
+}
+.deals__head {
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.deals__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+.deal {
+  background: #f6f3ec;
+  border: 1px solid #e7e0d3;
+  border-radius: 18px;
+  padding: 1rem;
+}
+.deal h3 {
+  margin: 0.2rem 0 0.3rem;
+}
+.deal__price {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-weight: 700;
+}
+
+/* Menu highlights */
+.menu-highlights {
+  background: #fff;
+  padding: 2.5rem 0;
+}
+.menu-highlights__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.menu-card {
+  display: block;
+  background: #f6f3ec;
+  border: 1px solid #e7e0d3;
+  border-radius: 20px;
+  padding: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+.menu-card__img {
+  height: 120px;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px dashed #ddd;
+  margin-bottom: 0.7rem;
+}
+.menu-card__label {
+  font-weight: 700;
+}
+
+/* Gallery */
+.gallery-strip {
+  background: #fff;
+  padding: 2.5rem 0;
+}
+.gallery-strip__row {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+.gallery-strip__row img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Reviews */
+.reviews-teaser {
+  background: #f6f3ec;
+  padding: 2.5rem 0;
+}
+.reviews-teaser__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.review {
+  background: #fff;
+  border: 1px solid #e7e0d3;
+  border-radius: 16px;
+  padding: 1rem;
+}
+.stars {
+  color: #f2892d;
+  letter-spacing: 2px;
+}
+
+/* Business info & map */
+.bizinfo {
+  background: #fff;
+  padding: 2.5rem 0;
+}
+.bizinfo__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+.hours {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 1rem;
+}
+.hours li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem 0;
+  border-bottom: 1px dashed #eee;
+}
+.hours__day {
+  font-weight: 600;
+}
+.map__wrap iframe {
+  width: 100%;
+  height: 340px;
+  border: 0;
+  border-radius: 12px;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .deals__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .menu-highlights__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .reviews-teaser__grid {
+    grid-template-columns: 1fr;
+  }
+  .bizinfo__grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-strip__row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
