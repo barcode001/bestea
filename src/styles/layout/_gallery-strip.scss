@@ -1,0 +1,43 @@
+@use "../abstracts/variables" as *;
+
+.gallery-strip {
+  background: #fff;
+  padding: 2.5rem 0;
+
+  h2 {
+    margin-bottom: 1rem;
+    color: $color-secondary;
+    text-align: center;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+
+  .btn {
+    margin-top: 1rem;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .gallery-strip__row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

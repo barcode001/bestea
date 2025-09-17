@@ -1,0 +1,144 @@
+@use "../abstracts/variables" as *;
+
+.menu-highlights {
+  background: #fff;
+  padding: 2.5rem 0;
+
+  h2 {
+    margin: 0 0 1.25rem;
+    color: $color-secondary;
+    text-align: center;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+
+    @media (max-width: 1000px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 560px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* ----- Card ----- */
+.menu-card {
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  background: $color-background;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
+  will-change: transform;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
+    border-color: rgba($color-accent, 0.35);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($color-accent, 0.55);
+    outline-offset: 3px;
+  }
+}
+
+/* Media (16:9) */
+.menu-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #fff;
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.01);
+    transition: transform 0.3s ease;
+  }
+
+  .menu-card:hover & img {
+    transform: scale(1.05);
+  }
+}
+
+/* Gradient overlay for contrast */
+.menu-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 55%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  pointer-events: none;
+}
+
+/* Category badge */
+.menu-card__badge {
+  position: absolute;
+  left: 0.8rem;
+  bottom: 0.8rem;
+  z-index: 2;
+  display: inline-block;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 700;
+  background: #fff;
+  color: $color-secondary;
+  border: 1px solid $color-border;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Fallback skeleton if image missing */
+.menu-card__placeholder {
+  position: absolute;
+  inset: 0.75rem;
+  border-radius: 16px;
+  border: 2px dashed #ddd;
+  background: radial-gradient(
+      120% 120% at 0% 0%,
+      rgba($color-pink, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      120% 120% at 100% 100%,
+      rgba($color-accent, 0.12),
+      transparent 60%
+    ),
+    #fff;
+}
+
+/* Optional: subtle accent ring per category */
+.menu-card[data-key="milk_tea"] {
+  --ring: $color-primary;
+}
+.menu-card[data-key="fruit_tea"] {
+  --ring: $color-pink;
+}
+.menu-card[data-key="smoothies"] {
+  --ring: $color-accent;
+}
+.menu-card[data-key="matcha"] {
+  --ring: $color-mint;
+}
+.menu-card[data-key="coffee"] {
+  --ring: $color-secondary;
+}
+.menu-card[data-key="snacks"] {
+  --ring: $color-primary;
+}
+
+.menu-card:hover {
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08),
+    0 0 0 3px color-mix(in srgb, var(--ring, $color-accent) 40%, transparent);
+}

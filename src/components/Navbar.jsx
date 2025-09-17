@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
+import logo from "../images/logo/logo.webp";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -47,8 +48,7 @@ export default function Navbar() {
     <nav className="nav">
       <div className="nav__bar">
         <Link to="/" className="nav__brand" aria-label="Go to homepage">
-          {/* Replace with your logo/SVG */}
-          <span className="nav__brandText">ClientName</span>
+          <img src={logo} alt="bestea logo" className="logo" />
         </Link>
 
         {/* Desktop links */}
@@ -107,9 +107,7 @@ export default function Navbar() {
             className="nav__brand nav__brand--drawer"
             onClick={close}
             ref={firstFocusable}
-          >
-            <span className="nav__brandText">ClientName</span>
-          </Link>
+          ></Link>
 
           <ul className="nav__drawerLinks" role="menu" aria-label="Mobile">
             {navItems.map((item, idx) => {

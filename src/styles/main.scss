@@ -8,6 +8,12 @@
 @use "./layout/services";
 @use "./layout/hero";
 @use "./layout/home";
+@use "./layout/deal-strip";
+@use "./layout/gallery-strip";
+@use "./layout/menu-highlights";
+@use "./layout/reviews-teaser";
+@use "./layout/business-info";
+@use "./layout/events";
 
 @use "./base/base";
 @use "./base/reset";
@@ -26,15 +32,62 @@ body {
 }
 
 // styles/_animations.scss or styles/main.scss
+/* reveal base */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(16px);
+  will-change: opacity, transform;
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.65, 0.2, 1);
 }
 
-.revealed {
+/* when in view */
+.reveal.is-inview {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+
+/* variants */
+.reveal--up {
+  transform: translateY(18px);
+}
+.reveal--down {
+  transform: translateY(-18px);
+}
+.reveal--left {
+  transform: translateX(22px);
+}
+.reveal--right {
+  transform: translateX(-22px);
+}
+.reveal--fade {
+  transform: none;
+}
+
+/* stagger helpers */
+.reveal--d100 {
+  transition-delay: 0.1s;
+}
+.reveal--d200 {
+  transition-delay: 0.2s;
+}
+.reveal--d300 {
+  transition-delay: 0.3s;
+}
+.reveal--d400 {
+  transition-delay: 0.4s;
+}
+.reveal--d500 {
+  transition-delay: 0.5s;
+}
+
+/* prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-inview {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 .scroll-to-top {
@@ -50,4 +103,13 @@ body {
   cursor: pointer;
   z-index: 1000;
   transition: opacity 0.3s ease;
+}
+
+/* layout helpers */
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+.center {
+  text-align: center;
 }

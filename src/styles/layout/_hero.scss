@@ -1,3 +1,177 @@
-@use "../abstracts/functions" as *;
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+
+.hero {
+  position: relative;
+  background: $color-background;
+  overflow: clip; // prevent blob overflow on mobile
+  max-width: 1100px;
+  margin: 0 auto;
+  max-height: 650px;
+  margin-top: 20px;
+
+  @include down(md) {
+    padding-top: 60px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .btn--ghost {
+    border: 2px solid $color-accent;
+    color: $color-accent;
+  }
+  .btn--ghost:hover {
+    background: $color-accent;
+    color: #fff;
+  }
+}
+
+.hero__inner {
+  // min-height: 78vh;
+  display: grid;
+  align-items: center;
+  // gap: 1.25rem;
+  // padding: 5.5rem 0 3rem;
+}
+
+/* ----- Brand art ----- */
+.hero__art {
+  display: flex;
+  justify-content: center;
+}
+.hero__image {
+  margin-top: -100px;
+  width: min(980px, 92vw);
+  height: auto;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.06));
+  animation: float 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* ----- Copy + CTAs ----- */
+.hero__copy {
+  text-align: center;
+  // margin-top: 0.6rem;
+  margin-top: -40px;
+  z-index: 3;
+
+  @include up(md) {
+    margin-top: -140px;
+  }
+}
+.hero__tagline {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: $color-secondary;
+  opacity: 0.9;
+  margin: 0.3rem 0 1rem;
+}
+.hero__cta {
+  display: inline-flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0.6rem 0 0;
+}
+.hero__hours {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  color: $color-secondary;
+
+  span {
+    color: $color-primary;
+    font-weight: 600;
+  }
+}
+
+/* ----- Featured picks (optional) ----- */
+.hero__picks {
+  margin: 1.2rem auto 0;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+
+  li {
+    background: #fff;
+    border: 1px solid #e7e0d3;
+    border-radius: 999px;
+    padding: 0.45rem 0.75rem;
+    font-weight: 600;
+    color: $color-secondary;
+  }
+  @include up(md) {
+    padding-bottom: 30px;
+  }
+}
+
+/* ----- Soft blobs (IG vibe) ----- */
+.hero__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.35; // keep a little higher to be more noticeable
+  z-index: 0;
+
+  &--pink {
+    width: 420px;
+    height: 420px;
+    background: $color-pink; // pink
+    top: -80px;
+    left: -80px;
+  }
+
+  &--lavender {
+    width: 520px;
+    height: 520px;
+    background: #a58bff; // bolder purple
+    // background: $color-accent; // lavender
+    right: -120px;
+    bottom: -80px;
+  }
+
+  &--mint {
+    width: 300px;
+    height: 300px;
+    background: $color-mint; // mint
+    top: 40%;
+    left: 10%;
+  }
+}
+
+/* Motion */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero__inner {
+    min-height: 66vh;
+    padding: 4.5rem 0 2.2rem;
+  }
+  .hero__picks {
+    gap: 0.5rem;
+  }
+  .hero__blob--pink {
+    width: 300px;
+    height: 300px;
+    top: -60px;
+    left: -60px;
+  }
+  .hero__blob--lavender {
+    width: 360px;
+    height: 360px;
+    right: -90px;
+    bottom: -70px;
+  }
+}

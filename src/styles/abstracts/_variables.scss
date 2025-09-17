@@ -1,12 +1,33 @@
-// Colors
-$color-primary: #007bff;
-$color-secondary: #177fd9;
-$color-accent: #ff5722;
-$color-background: #f9f9f9;
-$color-text: #333;
+// Colors (Bestea brand)
+// $color-primary: #f2892d; // Orange – CTAs, highlights
+// $color-secondary: #2e2a28; // Charcoal – text & headers
+// $color-accent: #a38bd6; // Lavender – playful accents
+// $color-background: #f6f3ec; // Beige background
+// $color-text: #2e2a28; // Default text
+
+// Colors (Bestea brand refresh)
+
+// Brand Core
+$color-primary: #f2892d; // Orange – CTAs, highlights
+$color-secondary: #2e2a28; // Charcoal – text & headers
+$color-text: #2e2a28; // Default text
+
+// Playful Accents
+$color-accent: #8f6bff; // Vibrant lavender
+$color-pink: #ff94b8; // Playful strawberry pink
+$color-mint: #8ee6c5; // Fresh mint green
+
+// Backgrounds
+$color-background: #f6f3ec; // Beige – safe default
+$color-white: #ffffff; // White – clean sections
+$color-alt-bg: #e9fdf5; // Soft mint – alternate section background
+
+// Utility
+$color-border: #e7e0d3; // Light beige border
+$color-shadow: rgba(0, 0, 0, 0.1); // Soft shadow
 
 // Typography
-$font-family: "Roboto", sans-serif;
+$font-family: "Poppins", "Inter", sans-serif;
 $font-size-base: 16px;
 $font-weight-regular: 400;
 $font-weight-bold: 700;
@@ -21,11 +42,11 @@ $spacing: (
   // 16px
   lg: 2rem,
   // 32px
-  xl: 4rem // 64px,,,,,,
+  xl: 4rem // 64px,,,,
 );
 
 // Borders
-$border-radius: 12px;
+$border-radius: 18px; // rounder, friendlier vibe
 
 // Shadows
-$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);

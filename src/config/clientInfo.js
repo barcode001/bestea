@@ -37,7 +37,7 @@ const clientInfo = {
       { day: "Monday", text: "1 medium drink + 1 sandwich", price: "$11" },
       { day: "Tuesday", text: "1 medium drink + 1 pastry", price: "$7" },
       { day: "Wednesday", text: "1 medium drink + spring rolls", price: "$10" },
-      { day: "Thursday", text: "Free upsize on drinks", price: "" }
+      { day: "Thursday", text: "Upsize on drinks", price: "Free" }
     ]
   },
 

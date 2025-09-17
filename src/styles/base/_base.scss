@@ -1,0 +1,54 @@
+@use "../abstracts/variables" as *;
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-family: inherit;
+  border: 1px solid $color-secondary;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:focus-visible {
+    outline: 3px solid rgba($color-primary, 0.6);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.btn--primary {
+  background: $color-primary;
+  color: $color-secondary;
+  box-shadow: $box-shadow;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.btn--ghost {
+  background: transparent;
+  color: $color-secondary;
+
+  &:hover {
+    background: rgba($color-primary, 0.12);
+  }
+}
+
+.btn--accent {
+  background: $color-accent;
+  color: #fff;
+  box-shadow: $box-shadow;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.12);
+  }
+}

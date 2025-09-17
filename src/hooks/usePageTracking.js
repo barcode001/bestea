@@ -1,20 +1,28 @@
-import { useLocation } from "react-router-dom";
+// hooks/useReveal.js
 import { useEffect } from "react";
 
-const usePageTracking = () => {
-  const location = useLocation();
-
+export function useReveal() {
   useEffect(() => {
-    if (typeof window.gtag === "function") {
-      window.gtag("event", "page_view", {
-        page_path: location.pathname,
-      });
-    }
-  }, [location]);
-};
+    const elements = document.querySelectorAll(".reveal");
+    if (!elements.length) return;
 
-export default usePageTracking;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-inview");
+            observer.unobserve(entry.target); // only animate once
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+}
 
 // import React from "react";
 // import usePageTracking from "./hooks/usePageTracking";

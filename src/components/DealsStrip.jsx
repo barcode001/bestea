@@ -6,18 +6,25 @@ export default function DealsStrip() {
   if (!specials?.items?.length) return null;
 
   return (
-    <section className="deals">
-      <div className="container">
-        <div className="deals__head">
-          <h2>Lunch Specials</h2>
-          <p>{specials.window}</p>
+    <section className="deals" aria-labelledby="deals-heading">
+      <div className="container ">
+        <div className="deals__head ">
+          <h2 id="deals-heading">Lunch Specials</h2>
+          {specials.window && (
+            <p className="deals__window">{specials.window}</p>
+          )}
         </div>
+
         <ul className="deals__grid">
-          {specials.items.map((d) => (
-            <li key={d.day} className="deal">
-              <h3>{d.day}</h3>
-              <p className="deal__text">{d.text}</p>
-              {d.price && <span className="deal__price">{d.price}</span>}
+          {specials.items.map(({ day, text, price }) => (
+            <li key={day} className="deal" aria-label={`${day} special`}>
+              <div className="deal__top">
+                <span className="deal__day">{day}</span>
+              </div>
+
+              <p className="deal__text">{text}</p>
+
+              {price && <span className="deal__price">{price}</span>}
             </li>
           ))}
         </ul>

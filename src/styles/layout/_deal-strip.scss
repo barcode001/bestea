@@ -1,0 +1,121 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.deals {
+  background: #fff;
+  padding: 2.75rem 0;
+
+  &__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.8rem;
+    h2 {
+      margin: 0;
+      font-size: clamp(1.4rem, 2vw, 1.8rem);
+      color: $color-secondary;
+    }
+    & > .deals__window {
+      margin: 0;
+      opacity: 0.8;
+      color: $color-secondary;
+      font-weight: 600;
+    }
+  }
+
+  &__grid {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0 0;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    @media (max-width: 1100px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    // @media (max-width: 520px) {
+    //   grid-template-columns: 1fr;
+    // }
+  }
+}
+
+.deal {
+  position: relative;
+  border-radius: 20px;
+  background: radial-gradient(
+      120% 120% at 0% 0%,
+      rgba($color-pink, 0.14),
+      transparent 60%
+    ),
+    radial-gradient(
+      120% 120% at 100% 100%,
+      rgba($color-accent, 0.12),
+      transparent 60%
+    ),
+    rgb($color-background, 0.5);
+  // white;
+
+  // border: 1px solid $color-border;
+  padding: 1rem 1rem 1.25rem;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.304);
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
+
+  @include up(md) {
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.213);
+      border-color: rgba($color-accent, 0.35);
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  &__day {
+    display: inline-block;
+    background: #fff;
+    background: $color-accent;
+    border: 1px solid $color-border;
+    color: $color-secondary;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: white;
+  }
+
+  &__icon {
+    opacity: 0.7;
+    font-size: 1.1rem;
+  }
+
+  &__text {
+    margin: 0.1rem 0 1.4rem;
+    color: $color-secondary;
+    font-size: 1rem;
+    line-height: 1.5;
+    // color: white;
+  }
+
+  &__price {
+    position: relative;
+    display: inline-block;
+    background: $color-primary;
+    background: rgb(255, 255, 255);
+    // color: #fff;
+
+    font-weight: 800;
+    padding: 0.35rem 0.6rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  }
+}
