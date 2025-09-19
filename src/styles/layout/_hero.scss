@@ -27,9 +27,17 @@
     border: 2px solid $color-accent;
     color: $color-accent;
   }
+
   .btn--ghost:hover {
     background: $color-accent;
     color: #fff;
+  }
+  .btn--primary {
+    border: none;
+    color: $color-secondary;
+  }
+  .btn--primary:hover {
+    color: rgb(255, 254, 254);
   }
 }
 
