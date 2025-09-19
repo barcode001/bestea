@@ -15,6 +15,7 @@ export default function Footer() {
             href="https://theedenscode.com"
             target="_blank"
             rel="noopener noreferrer"
+            className="designer"
           >
             EdensCode
           </a>
