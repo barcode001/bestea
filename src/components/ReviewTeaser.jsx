@@ -1,4 +1,5 @@
 import React from "react";
+import useScrollReveal from "hooks/useScrollReveal";
 
 const MOCK = [
   {
@@ -10,14 +11,15 @@ const MOCK = [
 ];
 
 export default function ReviewsTeaser() {
+  useScrollReveal();
   return (
     <section className="reviews-teaser">
       <div className="container">
-        <h2>What People Say</h2>
+        <h2 className="fade-up">What People Say</h2>
         <div className="reviews-teaser__grid">
           {MOCK.map((r, i) => (
-            <blockquote key={i} className="review">
-              <div className="stars" aria-hidden>
+            <blockquote key={i} className="review fade-up">
+              <div className="stars fade-up" aria-hidden>
                 ★★★★★
               </div>
               <p>“{r.quote}”</p>

@@ -1,5 +1,5 @@
 import React from "react";
-import { useReveal } from "../hooks/useReveal";
+import useScrollReveal from "../hooks/useScrollReveal";
 // If you don’t pass props, these render by default
 const DEFAULT_EVENTS = [
   {
@@ -20,21 +20,23 @@ const DEFAULT_EVENTS = [
 ];
 
 export default function Events({ items = DEFAULT_EVENTS }) {
-  useReveal();
+  useScrollReveal();
   return (
     <section className="events" aria-labelledby="events-heading">
       <div className="container">
-        <h2 id="events-heading" className="events__title  ">
+        <h2 id="events-heading" className="events__title fade-up ">
           Upcoming events
         </h2>
 
         <div className="events__grid " role="list">
           {items.map((ev) => (
-            <article key={ev.id} className="event" role="listitem">
-              <h3 className="event__title">{ev.title}</h3>
-              {ev.dateRange && <p className="event__date">{ev.dateRange}</p>}
+            <article key={ev.id} className="event fade-up" role="listitem">
+              <h3 className="event__title fade-up">{ev.title}</h3>
+              {ev.dateRange && (
+                <p className="event__date fade-up">{ev.dateRange}</p>
+              )}
               {Array.isArray(ev.details) && ev.details.length > 0 && (
-                <div className="event__details  ">
+                <div className="event__details fade-up ">
                   {ev.details.map((line, i) => (
                     <p key={i}>{line}</p>
                   ))}

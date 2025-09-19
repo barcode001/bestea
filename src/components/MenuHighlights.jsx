@@ -1,5 +1,6 @@
 import React from "react";
 import clientInfo from "../config/clientInfo";
+import useScrollReveal from "hooks/useScrollReveal";
 
 import milkTeaImg from "../images/categories/milk-tea.png";
 import fruitTeaImg from "../images/categories/fruit-tea.png";
@@ -48,6 +49,7 @@ const resolveImg = (cat) => {
 };
 
 export default function MenuHighlights() {
+  useScrollReveal();
   const { categories } = clientInfo;
   if (!categories?.length) return null;
 
@@ -57,7 +59,9 @@ export default function MenuHighlights() {
       aria-labelledby="menu-highlights-heading"
     >
       <div className="container">
-        <h2 id="menu-highlights-heading">Popular Categories</h2>
+        <h2 className="fade-up" id="menu-highlights-heading">
+          Popular Categories
+        </h2>
 
         <div className="menu-highlights__grid">
           {categories.map((c) => {
@@ -66,7 +70,7 @@ export default function MenuHighlights() {
               <a
                 key={c.key || c.label}
                 href="/menu"
-                className="menu-card"
+                className="menu-card fade-up"
                 aria-label={c.label}
                 data-key={toKey(c.key || c.label)}
               >
@@ -82,7 +86,7 @@ export default function MenuHighlights() {
                   ) : (
                     <div className="menu-card__placeholder" aria-hidden />
                   )}
-                  <span className="menu-card__badge">{c.label}</span>
+                  <span className="menu-card__badge fade-up">{c.label}</span>
                   <div className="menu-card__overlay" aria-hidden />
                 </div>
               </a>
