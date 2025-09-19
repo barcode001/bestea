@@ -23,7 +23,7 @@ export default function Footer() {
 
         <div className="footer-links">
           <Link to="/">Home</Link>
-          <Link to="/services">Services</Link>
+          <Link to="/menu">Menu</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
         </div>
